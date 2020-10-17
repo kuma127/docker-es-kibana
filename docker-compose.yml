@@ -1,0 +1,32 @@
+version: '3'
+services: 
+    es:
+        build: ./es
+        container_name: es
+        environment: 
+            - discovery.type=single-node
+            - cluster.name=docker-cluster
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        ulimits: 
+            memlock:
+                soft: -1
+                hard: -1
+        ports: 
+            - 9200:9200
+        volumes: 
+            - ./es-data:/usr/share/elasticsearch/data
+    kibana:
+        build: ./kibana
+        container_name: kibana
+        links:
+            - es:elasticsearch
+        ports:
+            - 5601:5601
+    python3:
+        restart: always
+        build: ./python3
+        container_name: python3
+        volumes:
+            - ./python3:/code
+        tty: true
