@@ -1,10 +1,10 @@
 # docker-es-kibana
 
-Docker-composeを用いてElasticSearch+Kibanaの環境と、それを利用するPythonの環境を立ち上げるリポジトリ
+Docker-composeを用いてElasticsearch+Kibanaの環境と、それを利用するPythonの環境を立ち上げるリポジトリ
 
-## es(ElasticSearch)
+## es(Elasticsearch)
 
-ElasticSearch用のディレクトリ
+Elasticsearch用のディレクトリ
 
 ## kibana
 
