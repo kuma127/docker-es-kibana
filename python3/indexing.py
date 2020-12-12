@@ -59,18 +59,22 @@ class MovableParser(object):
         self.document["body"] = body
 
         # 4 取得データの加工
+        print("4 取得データの加工 開始")
         url = blog_host + self.document["basename"]
         self.document["source"] = url
         self.document["date"] = datetime.datetime.strptime(self.document["date"], "%m/%d/%Y %H:%M:%S")
+        print("4 取得データの加工 終了")
 
         # 5 ElasticSearchへのデータ投入
+        print("5 ElasticSearchへのデータ投入　開始")
         self.es.index(index="blog", doc_type="blog", body=self.document)
         print(self.document)
         self.document = {}
+        print("5 ElasticSearchへのデータ投入　終了")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", type=str, default="localhost")
+    parser.add_argument("--host", type=str, default="es")
     parser.add_argument("--port", type=int, default="9200")
     parser.add_argument("--file", type=str, default="kumappp.hatenablog.com.export.txt")
     args = parser.parse_args()
