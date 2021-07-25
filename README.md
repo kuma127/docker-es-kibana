@@ -4,12 +4,12 @@ Docker-composeを用いてElasticsearch+Kibanaの環境と、それを利用す�
 
 ## es(Elasticsearch)
 
-Elasticsearch用のディレクトリ
+Elasticsearch用のコンテナ
 
 ## kibana
 
-Kibana用のディレクトリ
+Kibana用のコンテナ
 
 ## python3
 
-Python用のディレクトリ
+Python用のコンテナ
